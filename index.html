@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Racer</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="static/js/app.js"></script>
+</head>
+
+
+
+<body>
+
+    <!-- THIS IS THE NAV BAR-->
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a class="navbar-brand" href="#">Weather</a>
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Racer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sample</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <!-- THIS SHOULD BE WHERE THE USER CAN TYPE IN THE YEAR AND ROUND TO PULL UP THE DATA-->
+    <main style="background-color: #ff9b01;;">
+        <div class="container pt-5">
+            <form class="row" name="ask-user" id="user-form" method="GET" action="">
+                <div class="col-4 row text-center">
+                    <label class="col-3 mt-1" for="year">Year:</label>
+                    <input class="col-9" type="text" name="year" id="year"></label>
+                </div>
+                <div class="col-4 row text-center">
+                    <label class="col-4 mt-1" for="round">Round:</label>
+                    <input class="col-8" type="text" name="round" id="round"></label>
+                </div>
+                <div class="col-4 text-center">
+                    <button type="button" class="btn btn-primary col-6" onClick='getJSON'>Get Standings</button>
+                </div>
+            </form>
+
+
+            <!-- This should be the columns for the position, name, naitonality, sponsor and points-->
+            <div class="row mt-5 pb-5">
+                <table class="table" style="background-color: darkgrey;">
+                    <thead>
+                        <th scope="col">Position</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Nationality</th>
+                        <th scope="col">Sponsor</th>
+                        <th scope="col">Points</th>
+                    </thead>
+                    <tbody id="added-column"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
