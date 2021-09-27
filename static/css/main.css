@@ -1,0 +1,37 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#form-title {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.banner {
+    height: 100vh;
+    background-image: linear-gradient(to right, rgba(235, 147, 15, 0.651), rgb(247, 6, 6));
+}
+
+.table {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+tr:hover {
+    background-image: linear-gradient(grey, silver);
+}
+
+#submitButton {
+    background-color: rgba(224, 96, 128, 0.664);
+    padding-left: 15px;
+    padding-right: 15px;
+    color:black;
+    font-size: 16px;
+    margin: 10px 5px;
+    border-radius: 5px;
+}

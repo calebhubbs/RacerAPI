@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Racer</title>
+    <title>F1RacerData</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,18 +10,17 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/css/main.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="static/js/app.js"></script>
+
 </head>
-
-
 
 <body>
 
     <!-- THIS IS THE NAV BAR-->
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
-            <a class="navbar-brand" href="#">Weather</a>
+            <a class="navbar-brand" href="#">Racer</a>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
                 data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -32,13 +31,6 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Racer</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sample</a>
-                    </li>
-
                 </ul>
             </div>
         </nav>
@@ -47,37 +39,81 @@
 
 
     <!-- THIS SHOULD BE WHERE THE USER CAN TYPE IN THE YEAR AND ROUND TO PULL UP THE DATA-->
-    <main style="background-color: #ff9b01;;">
-        <div class="container pt-5">
-            <form class="row" name="ask-user" id="user-form" method="GET" action="">
-                <div class="col-4 row text-center">
-                    <label class="col-3 mt-1" for="year">Year:</label>
-                    <input class="col-9" type="text" name="year" id="year"></label>
-                </div>
-                <div class="col-4 row text-center">
-                    <label class="col-4 mt-1" for="round">Round:</label>
-                    <input class="col-8" type="text" name="round" id="round"></label>
-                </div>
-                <div class="col-4 text-center">
-                    <button type="button" class="btn btn-primary col-6" onClick='getJSON'>Get Standings</button>
-                </div>
+    <div class="banner">
+        <h2 id="form-title">F1 Racer Data</h2>
+        <div class="container">
+            <form action="" name="racerData" id="racerData">
+                <label for="lap"></label>
+                <input type="text" name="year" placeholder="Year">
+                <input type="text" name="lap" placeholder="Round">
+                <button id="submitButton" onClick="event.preventDefault(); getJSON()">Get Standings</button>
             </form>
 
-
-            <!-- This should be the columns for the position, name, naitonality, sponsor and points-->
-            <div class="row mt-5 pb-5">
-                <table class="table" style="background-color: darkgrey;">
-                    <thead>
-                        <th scope="col">Position</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Nationality</th>
-                        <th scope="col">Sponsor</th>
-                        <th scope="col">Points</th>
-                    </thead>
-                    <tbody id="added-column"></tbody>
-                </table>
-            </div>
         </div>
+
+
+        <!-- This should be the columns for the position, name, naitonality, sponsor and points-->
+        <div class="row mt-5 pb-5">
+            <table class="table">
+                <tr>
+                    <th>Position</th>
+                    <th>Name</th>
+                    <th>Nationality</th>
+                    <th>Sponsor</th>
+                    <th>Points</th>
+                </tr>
+                <tr>
+                    <td id="position0"></td>
+                    <td id="name0"></td>
+                    <td id="nationality0"></td>
+                    <td id="sponsor0"></td>
+                    <td id="points0"></td>
+                </tr>
+                <tr>
+                    <td id="position1"></td>
+                    <td id="name1"></td>
+                    <td id="nationality1"></td>
+                    <td id="sponsor1"></td>
+                    <td id="points1"></td>
+                </tr>
+                <tr>
+                    <td id="position2"></td>
+                    <td id="name2"></td>
+                    <td id="nationality2"></td>
+                    <td id="sponsor2"></td>
+                    <td id="points2"></td>
+                </tr>
+                <tr>
+                    <td id="position3"></td>
+                    <td id="name3"></td>
+                    <td id="nationality3"></td>
+                    <td id="sponsor3"></td>
+                    <td id="points3"></td>
+                </tr>
+                <tr>
+                    <td id="position4"></td>
+                    <td id="name4"></td>
+                    <td id="nationality4"></td>
+                    <td id="sponsor4"></td>
+                    <td id="points4"></td>
+                </tr>
+                <tr>
+                    <td id="position5"></td>
+                    <td id="name5"></td>
+                    <td id="nationality5"></td>
+                    <td id="sponsor5"></td>
+                    <td id="points5"></td>
+                </tr>
+                <tr>
+                    <td id="position6"></td>
+                    <td id="name6"></td>
+                    <td id="nationality6"></td>
+                    <td id="sponsor6"></td>
+                    <td id="points6"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
     </main>
 
 
@@ -90,6 +126,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <script src="static/js/app.js"></script>
 </body>
 
 </html>
